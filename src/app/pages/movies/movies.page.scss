@@ -1,0 +1,12 @@
+.banner {
+  height: 300px;
+
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .button {
+    min-width: 160px;
+  }
+}

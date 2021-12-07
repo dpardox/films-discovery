@@ -3,3 +3,7 @@
 
 // Bulma css framework
 @import 'node_modules/bulma/bulma.sass';
+
+// Components
+@import './theme/form/_all';
+@import './theme/helpers/_all';
