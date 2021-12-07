@@ -27,8 +27,8 @@
     <div class="tabs has-background-light">
       <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.streaming" (click)="getMovies(MovieType.streaming)">Streaming</button>
       <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.ads" (click)="getMovies(MovieType.ads)">On TV</button>
-      <button class="button is-rounded is-borderless is-shadowless">For Rent</button>
-      <button class="button is-rounded is-borderless is-shadowless">In Theathers</button>
+      <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.rent" (click)="getMovies(MovieType.rent)">For Rent</button>
+      <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.theatres" (click)="getMovies(MovieType.theatres)">In Theatres</button>
     </div>
   </div>
 

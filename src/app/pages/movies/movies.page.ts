@@ -55,6 +55,16 @@ export class MoviesPage implements OnInit {
         this.moviesService.ads().subscribe(data => this.movies = data);
         break;
 
+      case MovieType.rent:
+        this.type = MovieType.rent;
+        this.moviesService.rent().subscribe(data => this.movies = data);
+        break;
+
+      case MovieType.theatres:
+        this.type = MovieType.theatres;
+        this.moviesService.theatres().subscribe(data => this.movies = data);
+        break;
+
       default:
         this.type = MovieType.streaming;
         this.moviesService.streaming().subscribe(data => this.movies = data);
