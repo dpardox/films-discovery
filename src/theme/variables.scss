@@ -1,0 +1,13 @@
+$cyan: #3dbde3;
+$blue: #012984;
+$primary: $cyan;
+
+:root {
+  --cyan: #{$cyan};
+  --blue: #{$blue};
+  --black-10: rgba(0,0,0,.1);
+  --dark: #042743;
+  --grey: #bbc2ca;
+  --grey-light: #efefef;
+  --white: #ffffff;
+}
