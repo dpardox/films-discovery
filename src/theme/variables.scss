@@ -1,5 +1,5 @@
 // Font
-$family-sans-serif: 'Ubuntu', sans-serif;
+$family-sans-serif: 'Nunito', sans-serif;
 
 // Colors
 $black: #222729;
@@ -36,4 +36,4 @@ $input-focus-box-shadow-color: bulmaRgba($grey-light, 0.25);
 $container-max-width: 1080;
 
 // Spacing
-$spacing-values: ('24': 1.5rem);
+$spacing-values: ('8': .5rem, '16': 1rem, '24': 1.5rem);
