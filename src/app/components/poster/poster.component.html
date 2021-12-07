@@ -1,5 +1,7 @@
-<figure class="image is-3by4">
-  <img src="https://bulma.io/images/placeholders/256x256.png">
+<figure class="image">
+  <img [src]="movie.poster">
 </figure>
-<div class="has-text-weight-bold is-5 mt-8">Teenage Mutant Ninja Turtles</div>
-<div class="is-6">Aug 07, 2014</div>
+<div class="mt-8">
+  <div class="is-size-5 has-text-weight-bold">{{ movie.title }}</div>
+  <div class="is-size-7">{{ movie.release | date }}</div>
+</div>
