@@ -24,6 +24,8 @@ export class MoviesService {
         poster: `${environment.image}${i.poster_path}`,
         title: i.title,
         release: i.release_date,
+        overview: i.overview,
+        rate: i.vote_average,
       }))),
       map(x => x.slice(0, 6)),
     );
@@ -38,6 +40,8 @@ export class MoviesService {
         poster: `${environment.image}${i.poster_path}`,
         title: i.title,
         release: i.release_date,
+        overview: i.overview,
+        rate: i.vote_average,
       }))),
       map(x => x.slice(0, 6)),
     );

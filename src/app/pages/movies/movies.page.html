@@ -44,9 +44,14 @@
   <!-- Begin: Posters -->
   <div class="columns is-multiline">
     <div class="column is-2" *ngFor="let i of movies">
-      <app-poster [movie]="i"></app-poster>
+      <a (click)="selected = i">
+        <app-poster [movie]="i"></app-poster>
+      </a>
     </div>
   </div>
   <!-- End: Posters -->
 </div>
 
+<ng-container *ngIf="selected">
+  <app-movie-detail [movie]="selected" (close)="selected = null"></app-movie-detail>
+</ng-container>

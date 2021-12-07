@@ -1,0 +1,26 @@
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image">
+            <img [src]="movie.poster" alt="Poster">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <div class="title is-4">{{ movie.title }}</div>
+            <div class="subtitle is-6">{{ movie.release | date }}</div>
+            <div class="is-flex is-align-items-center mb-16">
+              <span class="tag is-primary is-rounded">{{ movie.rate / 10 | percent }}</span>
+              <progress class="progress is-primary" [value]="movie.rate" max="10"></progress>
+            </div>
+            <p>{{ movie.overview }}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+  <button class="modal-close is-large" (click)="close.emit()"></button>
+</div>

@@ -15,6 +15,7 @@ export class MoviesPage implements OnInit {
   public MovieType = MovieType;
   public type: MovieType = MovieType.streaming;
   public query: string = '';
+  public selected: Movie;
 
   constructor(
     private moviesService: MoviesService,
