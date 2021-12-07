@@ -20,14 +20,26 @@ export class MoviesService {
       }
     }).pipe(
       map(x => x.results),
-      tap(x => console.log('Movies original: ', x)),
       map(x => x.map((i: any) => ({
         poster: `${environment.image}${i.poster_path}`,
         title: i.title,
         release: i.release_date,
       }))),
       map(x => x.slice(0, 6)),
-      tap(x => console.log('Movies: ', x)),
+    );
+  }
+
+  public search(query: string): Observable<Movie[]> {
+    return this.http.get<any>(`${environment.api}/search/movie`, {
+      params: { query }
+    }).pipe(
+      map(x => x.results),
+      map(x => x.map((i: any) => ({
+        poster: `${environment.image}${i.poster_path}`,
+        title: i.title,
+        release: i.release_date,
+      }))),
+      map(x => x.slice(0, 6)),
     );
   }
 

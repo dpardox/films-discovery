@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
 
 import { MoviesPage } from './movies/movies.page';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -13,6 +14,7 @@ import { MoviesPage } from './movies/movies.page';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ComponentsModule,
   ]
 })

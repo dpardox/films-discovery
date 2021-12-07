@@ -4,21 +4,25 @@
   <div class="container">
     <h1 class="title is-1 has-text-white">Welcome</h1>
     <p class="subtitle is-4 has-text-white">Millions of movies, TV shows and people to discover. Explore now.</p>
-    <div class="field is-grouped">
-      <p class="control is-expanded">
-        <input class="input is-rounded is-medium" type="text" placeholder="Search for a movie, TV show and more">
-      </p>
-      <p class="control">
-        <a class="button is-primary is-rounded is-medium">Search</a>
-      </p>
-    </div>
+    <!-- Begin: Search -->
+    <form [formGroup]="form" (submit)="submit()">
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input formControlName="query" class="input is-rounded is-medium" type="text" placeholder="Search for a movie, TV show and more">
+        </p>
+        <p class="control">
+          <button type="submit" class="button is-primary is-rounded is-medium" [disabled]="form.invalid">Search</button>
+        </p>
+      </div>
+    </form>
+    <!-- End: Search -->
   </div>
 </figure>
 <!-- End: banner -->
 
 <div class="container pt-24">
   <!-- Begin: Tabs -->
-  <div class="is-flex is-align-items-center mb-24">
+  <div class="is-flex is-align-items-center mb-24" *ngIf="type === MovieType.streaming">
     <div class="has-text-weight-bold is-5 mr-24">What’s popular</div>
     <div class="tabs has-background-light">
       <button class="button is-active is-rounded is-borderless is-shadowless">Streaming</button>
@@ -26,6 +30,14 @@
       <button class="button is-rounded is-borderless is-shadowless">For Rent</button>
       <button class="button is-rounded is-borderless is-shadowless">In Theathers</button>
     </div>
+  </div>
+
+  <div class="is-flex is-align-items-center mb-24" *ngIf="type === MovieType.search">
+    <div class="has-text-weight-bold is-5 mr-24">Search results for:</div>
+    <span class="tag is-primary is-large is-rounded">
+      {{ query }}
+      <button class="delete ml-8" (click)="reset()"></button>
+    </span>
   </div>
   <!-- End: Tabs -->
 
