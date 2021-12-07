@@ -7,6 +7,20 @@
   }
 
   .button {
-    min-width: 160px;
+    min-width: 200px;
+  }
+}
+
+.tabs {
+  border-radius: 2rem;
+
+  .button {
+    background-color: transparent;
+    color: var(--blue);
+
+    &.is-active {
+      background-color: var(--cyan);
+      color: var(--white);
+    }
   }
 }

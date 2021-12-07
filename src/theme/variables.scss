@@ -4,7 +4,7 @@ $family-sans-serif: 'Ubuntu', sans-serif;
 // Colors
 $black: #222729;
 $cyan: #3dbde3;
-$blue: #012984;
+$blue: #042743;
 $grey: #bbc2ca;
 $grey-light: #efefef;
 
@@ -20,6 +20,9 @@ $primary: $cyan;
   --white: #ffffff;
 }
 
+// Text
+$text: $blue;
+
 // Input
 $input-color: $black;
 $input-border-color: $grey-light;
@@ -31,3 +34,6 @@ $input-focus-box-shadow-color: bulmaRgba($grey-light, 0.25);
 
 // Container
 $container-max-width: 1080;
+
+// Spacing
+$spacing-values: ('24': 1.5rem);
