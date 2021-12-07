@@ -36,20 +36,23 @@ export class MoviesPage implements OnInit {
 
   public submit() {
     if (this.form.valid && this.form.value.query) {
-      console.log('Serialize:', this.form.value);
       this.getMovies(MovieType.search, this.form.value.query);
     } else {
-      console.log('No: ', this.form.value); // TODO delete
       this.getMovies();
     }
   }
 
-  private getMovies(type: MovieType = MovieType.streaming, query: string = '') {
+  public getMovies(type: MovieType = MovieType.streaming, query: string = '') {
     switch (type) {
       case MovieType.search:
         this.type = MovieType.search;
         this.query = query;
         this.moviesService.search(query).subscribe(data => this.movies = data);
+        break;
+
+      case MovieType.ads:
+        this.type = MovieType.ads;
+        this.moviesService.ads().subscribe(data => this.movies = data);
         break;
 
       default:

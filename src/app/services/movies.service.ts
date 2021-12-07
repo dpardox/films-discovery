@@ -11,6 +11,22 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
+  public search(query: string): Observable<Movie[]> {
+    return this.http.get<any>(`${environment.api}/search/movie`, {
+      params: { query }
+    }).pipe(
+      map(x => x.results),
+      map(x => x.map((i: any) => ({
+        poster: `${environment.image}${i.poster_path}`,
+        title: i.title,
+        release: i.release_date,
+        overview: i.overview,
+        rate: i.vote_average,
+      }))),
+      map(x => x.slice(0, 6)),
+    );
+  }
+
   public streaming(): Observable<Movie[]> {
     return this.http.get<any>(`${environment.api}/discover/movie`, {
       params: {
@@ -31,9 +47,13 @@ export class MoviesService {
     );
   }
 
-  public search(query: string): Observable<Movie[]> {
-    return this.http.get<any>(`${environment.api}/search/movie`, {
-      params: { query }
+  public ads(): Observable<Movie[]> {
+    return this.http.get<any>(`${environment.api}/discover/movie`, {
+      params: {
+        'sort_by': 'popularity.desc',
+        'watch_region': 'US',
+        'with_watch_monetization_types': 'ads',
+      }
     }).pipe(
       map(x => x.results),
       map(x => x.map((i: any) => ({

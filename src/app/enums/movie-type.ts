@@ -1,4 +1,5 @@
 export enum MovieType {
-  streaming = 'streaming',
   search = 'search',
+  streaming = 'streaming',
+  ads = 'ads',
 }

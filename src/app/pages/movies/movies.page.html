@@ -22,11 +22,11 @@
 
 <div class="container pt-24">
   <!-- Begin: Tabs -->
-  <div class="is-flex is-align-items-center mb-24" *ngIf="type === MovieType.streaming">
+  <div class="is-flex is-align-items-center mb-24" *ngIf="type !== MovieType.search">
     <div class="has-text-weight-bold is-5 mr-24">What’s popular</div>
     <div class="tabs has-background-light">
-      <button class="button is-active is-rounded is-borderless is-shadowless">Streaming</button>
-      <button class="button is-rounded is-borderless is-shadowless">On TV</button>
+      <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.streaming" (click)="getMovies(MovieType.streaming)">Streaming</button>
+      <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.ads" (click)="getMovies(MovieType.ads)">On TV</button>
       <button class="button is-rounded is-borderless is-shadowless">For Rent</button>
       <button class="button is-rounded is-borderless is-shadowless">In Theathers</button>
     </div>
