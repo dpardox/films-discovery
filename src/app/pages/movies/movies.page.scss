@@ -1,17 +1,22 @@
 .banner {
-  height: 300px;
-
   img {
+    top: 0;
+    left: 0;
     object-fit: cover;
     height: 100%;
-  }
-
-  .button {
-    min-width: 200px;
+    width: 100%;
   }
 }
 
-.tabs {
+.types {
+  // display: inline-block;
+  align-items: stretch;
+  display: flex;
+  font-size: 1rem;
+  justify-content: space-between;
+  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
   border-radius: 2rem;
 
   .button {

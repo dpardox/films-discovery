@@ -33,7 +33,8 @@ $input-focus-border-color: $grey-light;
 $input-focus-box-shadow-color: bulmaRgba($grey-light, 0.25);
 
 // Container
-$container-max-width: 1080;
+$container-max-width: 1080px;
+$fullhd-enabled: false;
 
 // Spacing
 $spacing-values: ('8': .5rem, '16': 1rem, '24': 1.5rem);

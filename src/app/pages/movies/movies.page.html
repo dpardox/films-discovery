@@ -1,56 +1,58 @@
 <!-- Begin: banner -->
-<figure class="banner image is-flex is-align-items-center is-relative">
+<section class="section banner is-relative">
   <img class="is-absolute" src="./assets/images/banner-background.jpeg">
   <div class="container">
-    <h1 class="title is-1 has-text-white">Welcome</h1>
-    <p class="subtitle is-4 has-text-white">Millions of movies, TV shows and people to discover. Explore now.</p>
+    <h1 class="title is-1 is-size-2-mobile has-text-white">Welcome</h1>
+    <p class="subtitle is-4 is-size-5-mobile has-text-white">Millions of movies, TV shows and people to discover. Explore now.</p>
     <!-- Begin: Search -->
     <form [formGroup]="form" (submit)="submit()">
-      <div class="field is-grouped">
-        <p class="control is-expanded">
+      <div class="columns">
+        <div class="column">
           <input formControlName="query" class="input is-rounded is-medium" type="text" placeholder="Search for a movie, TV show and more">
-        </p>
-        <p class="control">
-          <button type="submit" class="button is-primary is-rounded is-medium" [disabled]="form.invalid">Search</button>
-        </p>
+        </div>
+        <div class="column is-3">
+          <button type="submit" class="button is-primary is-rounded is-medium is-fullwidth" [disabled]="form.invalid">Search</button>
+        </div>
       </div>
     </form>
     <!-- End: Search -->
   </div>
-</figure>
+</section>
 <!-- End: banner -->
 
-<div class="container pt-24">
-  <!-- Begin: Tabs -->
-  <div class="is-flex is-align-items-center mb-24" *ngIf="type !== MovieType.search">
-    <div class="has-text-weight-bold is-5 mr-24">What’s popular</div>
-    <div class="tabs has-background-light">
-      <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.streaming" (click)="getMovies(MovieType.streaming)">Streaming</button>
-      <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.ads" (click)="getMovies(MovieType.ads)">On TV</button>
-      <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.rent" (click)="getMovies(MovieType.rent)">For Rent</button>
-      <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.theatres" (click)="getMovies(MovieType.theatres)">In Theatres</button>
+<section class="section">
+  <div class="container">
+    <!-- Begin: Tabs -->
+    <div class="is-flex-tablet is-align-items-center mb-24" *ngIf="type !== MovieType.search">
+      <div class="has-text-weight-bold is-5 my-8 mr-24">What’s popular</div>
+      <div class="types has-background-light">
+        <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.streaming" (click)="getMovies(MovieType.streaming)">Streaming</button>
+        <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.ads" (click)="getMovies(MovieType.ads)">On TV</button>
+        <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.rent" (click)="getMovies(MovieType.rent)">For Rent</button>
+        <button class="button is-rounded is-borderless is-shadowless" [class.is-active]="type === MovieType.theatres" (click)="getMovies(MovieType.theatres)">In Theatres</button>
+      </div>
     </div>
-  </div>
 
-  <div class="is-flex is-align-items-center mb-24" *ngIf="type === MovieType.search">
-    <div class="has-text-weight-bold is-5 mr-24">Search results for:</div>
-    <span class="tag is-primary is-large is-rounded">
-      {{ query }}
-      <button class="delete ml-8" (click)="reset()"></button>
-    </span>
-  </div>
-  <!-- End: Tabs -->
-
-  <!-- Begin: Posters -->
-  <div class="columns is-multiline">
-    <div class="column is-2" *ngFor="let i of movies">
-      <a (click)="selected = i">
-        <app-poster [movie]="i"></app-poster>
-      </a>
+    <div class="is-flex-tablet is-align-items-center mb-24" *ngIf="type === MovieType.search">
+      <div class="has-text-weight-bold is-5 my-8 mr-24">Search results for:</div>
+      <span class="tag is-primary is-large is-rounded">
+        {{ query }}
+        <button class="delete ml-8" (click)="reset()"></button>
+      </span>
     </div>
+    <!-- End: Tabs -->
+
+    <!-- Begin: Posters -->
+    <div class="columns is-multiline is-mobile">
+      <div class="column is-6-mobile is-4-tablet is-2-desktop" *ngFor="let i of movies">
+        <a (click)="selected = i">
+          <app-poster [movie]="i"></app-poster>
+        </a>
+      </div>
+    </div>
+    <!-- End: Posters -->
   </div>
-  <!-- End: Posters -->
-</div>
+</section>
 
 <ng-container *ngIf="selected">
   <app-movie-detail [movie]="selected" (close)="selected = null"></app-movie-detail>
